@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Courier | Ashok Courier Services</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="top-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-8">
+          <div class="top-header-info">
+            <span><i class="fas fa-headset"></i> 24/7 Helpline: <a href="tel:18002334567" class="fw-bold">+91 1800 233 4567</a></span>
+            <span class="d-none d-sm-inline"><i class="fas fa-envelope"></i> <a href="mailto:support@ashokcourier.com">support@ashokcourier.com</a></span>
+            <span class="badge-247"><i class="fas fa-circle fa-xs me-1"></i> Doorstep Pickup Active</span>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 text-end d-none d-md-block">
+          <div class="top-header-actions">
+            <span><i class="fas fa-shield-alt text-warning"></i> Instant Waybill Generation</span>
+            <a href="branches.html" class="small"><i class="fas fa-map-marker-alt"></i> 180+ Hubs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html">
+        <div class="brand-logo-icon">
+          <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">ASHOK <span>COURIER</span></span>
+          <span class="brand-tagline">Services &bull; Fast &bull; Secure</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarNav" aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars fa-lg text-navy"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="tracking.html">Track Parcel</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="rates.html">Shipping Rates</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="branches.html">Branches</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2" id="navAuthContainer">
+          <a href="login.html" class="btn btn-sm btn-outline-navy me-1"><i class="fas fa-user me-1"></i> Login</a>
+          <a href="booking.html" class="btn btn-sm btn-orange active"><i class="fas fa-box me-1"></i> Book Courier</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Subpage Banner -->
+  <section class="page-banner">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="breadcrumb-custom">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="active">Book a Courier</span>
+      </div>
+      <h1 class="page-banner-title">Schedule Doorstep Courier Pickup</h1>
+      <p class="page-banner-desc">
+        Complete the form below to register your shipment, generate an instant waybill tracking ID, and dispatch our pickup rider.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Booking Form & Live Fare Summary -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Booking Form Column (Left) -->
+        <div class="col-lg-8">
+          <div class="booking-card p-4 p-md-5">
+            <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+              <div>
+                <h3 class="fw-bold text-navy mb-1"><i class="fas fa-box-open text-orange me-2"></i> Courier Booking Form</h3>
+                <span class="text-muted small">Please provide accurate sender, receiver, and parcel measurements.</span>
+              </div>
+              <span class="badge bg-warning-subtle text-dark border border-warning-subtle d-none d-sm-inline-block">
+                <i class="fas fa-truck-loading me-1"></i> Free Doorstep Pickup
+              </span>
+            </div>
+
+            <form id="courierBookingForm">
+              <!-- SECTION 1: SENDER DETAILS -->
+              <div class="form-section-title">
+                <i class="fas fa-user-circle"></i> 1. Sender (Consignor) Information
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Sender Full Name *</label>
+                  <input type="text" id="senderName" class="form-control-custom" placeholder="e.g. Ramesh Patel" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Mobile Number *</label>
+                  <input type="tel" id="senderPhone" class="form-control-custom" placeholder="e.g. 9876543210" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Pickup Address / House / Street *</label>
+                  <input type="text" id="senderAddress" class="form-control-custom" placeholder="Flat No., Building Name, Street / Landmark" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Pickup City *</label>
+                  <input type="text" id="senderCity" class="form-control-custom" placeholder="e.g. New Delhi" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Pickup Pincode *</label>
+                  <input type="text" id="senderPincode" class="form-control-custom" placeholder="e.g. 110001" maxlength="6" required>
+                </div>
+              </div>
+
+              <!-- SECTION 2: RECEIVER DETAILS -->
+              <div class="form-section-title">
+                <i class="fas fa-map-marker-alt"></i> 2. Receiver (Consignee) Information
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Receiver Full Name *</label>
+                  <input type="text" id="receiverName" class="form-control-custom" placeholder="e.g. Sunita Sharma" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Receiver Phone Number *</label>
+                  <input type="tel" id="receiverPhone" class="form-control-custom" placeholder="e.g. 9123456780" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom">Delivery Street Address *</label>
+                  <input type="text" id="receiverAddress" class="form-control-custom" placeholder="House / Office / Apt, Road, Area" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Destination City *</label>
+                  <input type="text" id="receiverCity" class="form-control-custom" placeholder="e.g. Mumbai" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Destination Pincode *</label>
+                  <input type="text" id="receiverPincode" class="form-control-custom" placeholder="e.g. 400001" maxlength="6" required>
+                </div>
+              </div>
+
+              <!-- SECTION 3: PARCEL DETAILS -->
+              <div class="form-section-title">
+                <i class="fas fa-cube"></i> 3. Parcel & Delivery Specifications
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Parcel Category *</label>
+                  <select id="parcelType" class="form-select-custom" required>
+                    <option value="Documents & Cheques">Documents & Cheques</option>
+                    <option value="Consumer Electronics">Consumer Electronics</option>
+                    <option value="Clothing & Apparel" selected>Clothing & Apparel</option>
+                    <option value="Medical & Pharmaceutical">Medical & Pharmaceutical</option>
+                    <option value="Auto Parts & Hardware">Auto Parts & Hardware</option>
+                    <option value="Books & Stationery">Books & Stationery</option>
+                    <option value="Other Commercial Goods">Other Commercial Goods</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Estimated Weight (kg) *</label>
+                  <input type="number" id="parcelWeight" class="form-control-custom" value="1.0" min="0.1" max="100" step="0.1" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Delivery Speed Tier *</label>
+                  <select id="deliveryType" class="form-select-custom" required>
+                    <option value="standard" selected>Domestic Standard (1-3 Days)</option>
+                    <option value="express">Express Overnight Air (Next Day)</option>
+                    <option value="sameday">Same-Day Priority (4-6 Hours)</option>
+                    <option value="international">International Air Cargo (3-6 Days)</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Declared Value (₹) *</label>
+                  <input type="number" id="declaredValue" class="form-control-custom" placeholder="e.g. 3500" value="2500" min="100">
+                </div>
+              </div>
+
+              <!-- SECTION 4: PICKUP SCHEDULING & ADD-ONS -->
+              <div class="form-section-title">
+                <i class="fas fa-calendar-alt"></i> 4. Pickup Date & Time Slot
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label-custom">Preferred Pickup Date *</label>
+                  <input type="date" id="pickupDate" class="form-control-custom" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-custom">Time Slot *</label>
+                  <select id="pickupSlot" class="form-select-custom">
+                    <option value="Morning Slot (09:00 AM - 12:00 PM)">Morning Slot (09:00 AM - 12:00 PM)</option>
+                    <option value="Afternoon Slot (12:00 PM - 04:00 PM)" selected>Afternoon Slot (12:00 PM - 04:00 PM)</option>
+                    <option value="Evening Slot (04:00 PM - 08:00 PM)">Evening Slot (04:00 PM - 08:00 PM)</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="p-3 rounded-3 bg-light border">
+                    <span class="fw-bold text-navy d-block mb-2">Value Added Protections:</span>
+                    <div class="form-check form-check-inline me-4">
+                      <input class="form-check-input" type="checkbox" id="fragileHandling">
+                      <label class="form-check-label small fw-semibold" for="fragileHandling">
+                        <i class="fas fa-wine-glass-alt text-danger me-1"></i> Fragile Handling (+₹50)
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="insuranceOption">
+                      <label class="form-check-label small fw-semibold" for="insuranceOption">
+                        <i class="fas fa-shield-alt text-success me-1"></i> Comprehensive Transit Cover (+₹60)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-end">
+                <button type="submit" id="bookSubmitBtn" class="btn-orange py-3 px-5 fs-6 shadow">
+                  <i class="fas fa-check-circle me-2"></i> Confirm Booking & Generate Consignment
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sticky Fare Calculator & Trust Card (Right) -->
+        <div class="col-lg-4">
+          <div class="fare-calculator-card">
+            <div class="fare-calc-header">
+              <span class="badge bg-primary text-white mb-2">Live Fare Calculation</span>
+              <h4 class="fw-bold text-navy mb-0">Shipping Fare Summary</h4>
+              <small class="text-muted" id="fareServiceName">Domestic Standard</small>
+            </div>
+
+            <div class="fare-breakdown-row">
+              <span class="text-muted">Base Carriage Charge</span>
+              <span class="fw-bold text-navy" id="fareBaseAmount">₹90</span>
+            </div>
+            <div class="fare-breakdown-row">
+              <span class="text-muted">Weight Surcharge</span>
+              <span class="fw-bold text-navy" id="fareWeightAmount">₹23</span>
+            </div>
+            <div class="fare-breakdown-row">
+              <span class="text-muted">Protective Add-ons</span>
+              <span class="fw-bold text-navy" id="fareAddonsAmount">₹0</span>
+            </div>
+            <div class="fare-breakdown-row">
+              <span class="text-muted">GST (18% Statutory)</span>
+              <span class="fw-bold text-navy" id="fareTaxAmount">₹20</span>
+            </div>
+
+            <div class="fare-breakdown-total">
+              <span>Estimated Total:</span>
+              <span class="fare-amount" id="fareTotalAmount">₹133</span>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Trust Points -->
+            <div class="d-flex flex-column gap-3 small text-muted">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-shield-check text-success fs-5"></i>
+                <span>Free transit cover included up to ₹5,000</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-map-pin text-orange fs-5"></i>
+                <span>100% Free Doorstep Pickup by uniform rider</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-qrcode text-primary fs-5"></i>
+                <span>Digital Waybill & SMS tracking generated instantly</span>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-3" style="background: #F1F5F9; border-left: 3px solid #133E87;">
+              <small class="text-muted d-block">
+                <strong>Need help booking?</strong> Call our helpline at <a href="tel:18002334567" class="fw-bold text-navy">1800 233 4567</a>.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Local Bookings Table Section -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="bg-white p-4 rounded-4 shadow-sm border">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <h4 class="fw-bold text-navy mb-1"><i class="fas fa-history text-orange me-2"></i> Your Recent Bookings</h4>
+                <p class="text-muted small mb-0">Consignments created during your browsing session stored securely in your browser.</p>
+              </div>
+              <button class="btn btn-sm btn-outline-navy" onclick="renderRecentBookings()">
+                <i class="fas fa-sync-alt me-1"></i> Refresh List
+              </button>
+            </div>
+
+            <div id="recentBookingsContainer">
+              <!-- Dynamically populated by js/booking.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-logo-icon" style="width: 40px; height: 40px; font-size: 1.2rem;"><i class="fas fa-shipping-fast"></i></div>
+            <span class="fs-4 fw-bold text-white">ASHOK <span class="text-orange">COURIER</span></span>
+          </div>
+          <p class="small text-muted mb-3">
+            Ashok Courier Services is India's leading integrated multimodal logistics network. Providing express courier, international cargo, and supply chain solutions with unmatched speed and reliability.
+          </p>
+          <div class="footer-social-links">
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+            <li><a href="tracking.html"><i class="fas fa-angle-right"></i> Track Parcel</a></li>
+            <li><a href="booking.html"><i class="fas fa-angle-right"></i> Book Courier</a></li>
+            <li><a href="rates.html"><i class="fas fa-angle-right"></i> Shipping Rates</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5 class="footer-widget-title">Our Services</h5>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Domestic Express</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> International Shipping</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Same-Day Delivery</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> E-Commerce Logistics</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Bulk Freight Cargo</a></li>
+            <li><a href="branches.html"><i class="fas fa-angle-right"></i> Branch Locator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-widget-title">Head Office</h5>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Ashok Logistics Tower, Plot 42, Cyber Hub, Gurugram, India 122002</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+91 1800 233 4567 / 011-4982-1000</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@ashokcourier.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-start mb-2 mb-md-0">&copy; 2026 <strong>ASHOK COURIER SERVICES</strong>. All Rights Reserved.</div>
+          <div class="col-md-6 text-md-end">
+            <a href="contact.html" class="text-muted me-3">Privacy Policy</a>
+            <a href="contact.html" class="text-muted me-3">Terms of Carriage</a>
+            <a href="contact.html" class="text-muted">GST Compliance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="back-to-top-btn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>
+

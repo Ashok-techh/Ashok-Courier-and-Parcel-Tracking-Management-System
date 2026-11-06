@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#133E87"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B00"/>
+      <stop offset="100%" stop-color="#E05A00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark Container -->
+  <rect x="10" y="15" width="70" height="70" rx="16" fill="url(#navyGrad)"/>
+  
+  <!-- Fast Wing / Arrow Shape -->
+  <path d="M 28 50 L 52 32 L 44 48 L 62 48 L 36 68 L 42 53 Z" fill="url(#orangeGrad)"/>
+  <circle cx="65" cy="25" r="7" fill="#FF6B00"/>
+
+  <!-- Logo Typography -->
+  <text x="96" y="52" font-family="'Outfit', 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="800" fill="#0B2545" letter-spacing="-0.5">
+    ASHOK <tspan fill="#FF6B00">COURIER</tspan>
+  </text>
+  <text x="98" y="72" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="600" fill="#64748B" letter-spacing="2">
+    SERVICES &bull; FAST &bull; SECURE &bull; ON-TIME
+  </text>
+</svg>
+

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Rates & Price Calculator | Ashok Courier Services</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="top-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-8">
+          <div class="top-header-info">
+            <span><i class="fas fa-headset"></i> 24/7 Helpline: <a href="tel:18002334567" class="fw-bold">+91 1800 233 4567</a></span>
+            <span class="d-none d-sm-inline"><i class="fas fa-envelope"></i> <a href="mailto:support@ashokcourier.com">support@ashokcourier.com</a></span>
+            <span class="badge-247"><i class="fas fa-circle fa-xs me-1"></i> Transparent Pricing</span>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 text-end d-none d-md-block">
+          <div class="top-header-actions">
+            <span><i class="fas fa-coins text-warning"></i> Zero Hidden Surcharges</span>
+            <a href="branches.html" class="small"><i class="fas fa-map-marker-alt"></i> 180+ Hubs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html">
+        <div class="brand-logo-icon">
+          <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">ASHOK <span>COURIER</span></span>
+          <span class="brand-tagline">Services &bull; Fast &bull; Secure</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarNav" aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars fa-lg text-navy"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="tracking.html">Track Parcel</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="rates.html">Shipping Rates</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="branches.html">Branches</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2" id="navAuthContainer">
+          <a href="login.html" class="btn btn-sm btn-outline-navy me-1"><i class="fas fa-user me-1"></i> Login</a>
+          <a href="booking.html" class="btn btn-sm btn-orange"><i class="fas fa-box me-1"></i> Book Courier</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Subpage Banner -->
+  <section class="page-banner">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="breadcrumb-custom">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="active">Shipping Rates</span>
+      </div>
+      <h1 class="page-banner-title">Transparent Shipping Rates & Calculator</h1>
+      <p class="page-banner-desc">
+        Calculate exact shipping rates based on parcel weight, destination distance, and priority tier. No surprises, no hidden fuel fees.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Shipping Rate Calculator Tool -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border">
+            <div class="text-center mb-4">
+              <span class="section-subtitle">Interactive Rate Estimator</span>
+              <h3 class="fw-bold text-navy">Calculate Shipping Cost Instantly</h3>
+              <p class="text-muted small">Select your origin, destination, and package weight to see instant estimated cost & turnaround time.</p>
+            </div>
+
+            <form id="rateCalculatorForm" class="row g-3">
+              <div class="col-md-3">
+                <label class="form-label-custom">Origin City / Hub</label>
+                <select id="calcOrigin" class="form-select-custom">
+                  <option value="Delhi">New Delhi / NCR</option>
+                  <option value="Mumbai">Mumbai / MMR</option>
+                  <option value="Bengaluru">Bengaluru</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                  <option value="Pune">Pune</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label-custom">Destination City</label>
+                <select id="calcDestination" class="form-select-custom">
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">New Delhi</option>
+                  <option value="Bengaluru" selected>Bengaluru</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                  <option value="Pune">Pune</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label-custom">Parcel Weight (kg)</label>
+                <input type="number" id="calcWeight" class="form-control-custom" value="1.5" min="0.1" max="100" step="0.1">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label-custom">Delivery Speed Tier</label>
+                <select id="calcTier" class="form-select-custom">
+                  <option value="standard">Domestic Standard (Road)</option>
+                  <option value="express" selected>Overnight Express Air</option>
+                  <option value="sameday">Same-Day Priority (Metro)</option>
+                  <option value="international">International Air Shipping</option>
+                </select>
+              </div>
+
+              <div class="col-12 text-center mt-4">
+                <button type="button" class="btn-orange px-5 py-2 shadow" onclick="calculateInstantQuote()">
+                  <i class="fas fa-calculator me-2"></i> Get Instant Rate Quote
+                </button>
+              </div>
+            </form>
+
+            <!-- Rate Calculator Result Box -->
+            <div id="calcQuoteResult" class="mt-4 p-4 rounded-3 text-center" style="background: #F8FAFC; border: 2px dashed #0B2545;">
+              <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <span class="text-muted small text-uppercase fw-semibold d-block">Estimated Shipping Cost</span>
+                  <span class="fs-2 fw-bold text-orange" id="quoteCostDisplay">₹265</span>
+                  <small class="text-muted d-block">(Includes 18% GST & Doorstep Pickup)</small>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0 border-start-md border-end-md">
+                  <span class="text-muted small text-uppercase fw-semibold d-block">Estimated Transit Time</span>
+                  <span class="fs-4 fw-bold text-navy" id="quoteTimeDisplay">Next Day (Within 24 Hrs)</span>
+                  <small class="text-success fw-bold d-block"><i class="fas fa-plane me-1"></i> Express Air Priority</small>
+                </div>
+                <div class="col-md-4">
+                  <a href="booking.html" class="btn btn-navy w-100 py-2">
+                    <i class="fas fa-box me-1"></i> Book This Shipment
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards (Domestic & Express) -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Transparent Tier Rates</span>
+        <h2 class="section-title">Popular Domestic <span>Courier Plans</span></h2>
+        <p class="section-desc">Straightforward flat rates for individual senders, online sellers, and commercial organizations.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Standard Plan -->
+        <div class="col-lg-4 col-md-6">
+          <div class="pricing-card">
+            <h4 class="fw-bold text-navy">Domestic Standard</h4>
+            <p class="text-muted small">Affordable ground transit across all pin codes in India.</p>
+            <div class="pricing-price">
+              ₹90 <span>/ first 500g</span>
+            </div>
+            <span class="badge bg-light text-navy border py-2">+₹45 for each additional 500g</span>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> 1 to 3 Business Days Delivery</li>
+              <li><i class="fas fa-check-circle"></i> Free Doorstep Pickup</li>
+              <li><i class="fas fa-check-circle"></i> Basic Transit Insurance (up to ₹5,000)</li>
+              <li><i class="fas fa-check-circle"></i> Real-time Milestone Barcode Tracking</li>
+              <li><i class="fas fa-times-circle"></i> No Flight Routing</li>
+            </ul>
+            <a href="booking.html" class="btn btn-outline-navy mt-auto">Book Standard</a>
+          </div>
+        </div>
+
+        <!-- Express Air Plan (Featured) -->
+        <div class="col-lg-4 col-md-6">
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <h4 class="fw-bold text-navy">Express Air Overnight</h4>
+            <p class="text-muted small">Next flight out priority transit for urgent documents and parcels.</p>
+            <div class="pricing-price text-orange">
+              ₹180 <span>/ first 500g</span>
+            </div>
+            <span class="badge bg-orange-light text-orange border border-orange py-2">+₹85 for each additional 500g</span>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> Guaranteed Next-Day Delivery</li>
+              <li><i class="fas fa-check-circle"></i> Scheduled Dedicated Flight Cargo Space</li>
+              <li><i class="fas fa-check-circle"></i> Free Insurance up to ₹15,000</li>
+              <li><i class="fas fa-check-circle"></i> Live GPS Air Cargo Flight Tracker</li>
+              <li><i class="fas fa-check-circle"></i> Dedicated Priority Escalation Desk</li>
+            </ul>
+            <a href="booking.html" class="btn btn-orange mt-auto">Book Express Air</a>
+          </div>
+        </div>
+
+        <!-- Same-Day Metro Plan -->
+        <div class="col-lg-4 col-md-6">
+          <div class="pricing-card">
+            <h4 class="fw-bold text-navy">Same-Day Priority</h4>
+            <p class="text-muted small">Ultra-fast intra-city point-to-point dispatch across metros.</p>
+            <div class="pricing-price">
+              ₹290 <span>/ up to 2 kg</span>
+            </div>
+            <span class="badge bg-light text-navy border py-2">+₹60 for each additional 1 kg</span>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> Delivered in 4 to 6 Hours</li>
+              <li><i class="fas fa-check-circle"></i> Dedicated Motorcycle Courier Assigned</li>
+              <li><i class="fas fa-check-circle"></i> Live Map Tracking of Courier Boy</li>
+              <li><i class="fas fa-check-circle"></i> Secure OTP Signature Handover</li>
+              <li><i class="fas fa-check-circle"></i> Available in all Tier-1 Metro Cities</li>
+            </ul>
+            <a href="booking.html" class="btn btn-outline-navy mt-auto">Book Same-Day</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weight-Based Pricing Matrix Table -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Detailed Rate Grid</span>
+        <h2 class="section-title">Weight-Based <span>Pricing Matrix</span></h2>
+        <p class="section-desc">Clear breakdown of rates across standard weight brackets.</p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center bg-white shadow-sm">
+          <thead style="background: var(--navy-primary); color: white;">
+            <tr>
+              <th class="text-start py-3 ps-4">Weight Bracket</th>
+              <th>Domestic Standard</th>
+              <th>Express Overnight Air</th>
+              <th>Same-Day Metro</th>
+              <th>International Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-start fw-bold text-navy ps-4">Up to 0.5 kg (Documents / Small Box)</td>
+              <td>₹90</td>
+              <td>₹180</td>
+              <td>₹290</td>
+              <td>₹850</td>
+            </tr>
+            <tr>
+              <td class="text-start fw-bold text-navy ps-4">0.5 kg – 1.0 kg</td>
+              <td>₹135</td>
+              <td>₹265</td>
+              <td>₹290</td>
+              <td>₹1,200</td>
+            </tr>
+            <tr>
+              <td class="text-start fw-bold text-navy ps-4">1.0 kg – 2.0 kg</td>
+              <td>₹225</td>
+              <td>₹435</td>
+              <td>₹290</td>
+              <td>₹1,850</td>
+            </tr>
+            <tr>
+              <td class="text-start fw-bold text-navy ps-4">2.0 kg – 5.0 kg</td>
+              <td>₹450</td>
+              <td>₹860</td>
+              <td>₹470</td>
+              <td>₹3,500</td>
+            </tr>
+            <tr>
+              <td class="text-start fw-bold text-navy ps-4">5.0 kg – 10.0 kg</td>
+              <td>₹820</td>
+              <td>₹1,550</td>
+              <td>₹750</td>
+              <td>₹6,200</td>
+            </tr>
+            <tr class="table-light">
+              <td class="text-start fw-bold text-navy ps-4">Bulk / Pallet Cargo (Per kg above 25kg)</td>
+              <td>₹28 / kg</td>
+              <td>₹55 / kg</td>
+              <td>Custom Quote</td>
+              <td>₹280 / kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-muted small mt-2">
+        * Rates are exclusive of 18% GST. Remote area surcharges may apply for remote hill states and islands.
+      </div>
+    </div>
+  </section>
+
+  <!-- Volumetric Weight Calculator Tool -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="section-subtitle">Volumetric Rule</span>
+          <h2 class="section-title">How Is Volumetric <span>Weight Calculated?</span></h2>
+          <p class="text-muted">
+            In air freight and express courier transport, packages with high volume and low weight occupy significant cargo bay space. Courier rates are billed on the <strong>higher</strong> of Actual Weight or Volumetric (Dimensional) Weight.
+          </p>
+          <div class="p-3 rounded-3 bg-light border mb-4">
+            <h6 class="fw-bold text-navy mb-1">Standard IATA Industry Formula:</h6>
+            <code class="fs-5 text-orange fw-bold">Volumetric Weight (kg) = (Length &times; Width &times; Height in cm) / 5000</code>
+          </div>
+          <p class="text-muted small mb-0">
+            For example: A lightweight pillow box measuring 50 cm &times; 40 cm &times; 30 cm = 60,000 / 5000 = <strong>12.0 kg Volumetric Weight</strong>, even if the actual scale weight is only 1.5 kg.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="bg-light p-4 p-md-5 rounded-4 border shadow-sm">
+            <h5 class="fw-bold text-navy mb-3"><i class="fas fa-ruler-combined text-orange me-2"></i> Test Your Box Dimensions</h5>
+            <div class="row g-3">
+              <div class="col-4">
+                <label class="form-label-custom">Length (cm)</label>
+                <input type="number" id="boxLength" class="form-control-custom" value="30" min="1" oninput="calculateVolumetric()">
+              </div>
+              <div class="col-4">
+                <label class="form-label-custom">Width (cm)</label>
+                <input type="number" id="boxWidth" class="form-control-custom" value="20" min="1" oninput="calculateVolumetric()">
+              </div>
+              <div class="col-4">
+                <label class="form-label-custom">Height (cm)</label>
+                <input type="number" id="boxHeight" class="form-control-custom" value="15" min="1" oninput="calculateVolumetric()">
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-3 bg-white border text-center">
+              <span class="text-muted small d-block">Calculated Volumetric Weight:</span>
+              <span class="fs-2 fw-bold text-navy" id="volumetricResult">1.80 kg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-logo-icon" style="width: 40px; height: 40px; font-size: 1.2rem;"><i class="fas fa-shipping-fast"></i></div>
+            <span class="fs-4 fw-bold text-white">ASHOK <span class="text-orange">COURIER</span></span>
+          </div>
+          <p class="small text-muted mb-3">
+            Ashok Courier Services is India's leading integrated multimodal logistics network. Providing express courier, international cargo, and supply chain solutions with unmatched speed and reliability.
+          </p>
+          <div class="footer-social-links">
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+            <li><a href="tracking.html"><i class="fas fa-angle-right"></i> Track Parcel</a></li>
+            <li><a href="booking.html"><i class="fas fa-angle-right"></i> Book Courier</a></li>
+            <li><a href="rates.html"><i class="fas fa-angle-right"></i> Shipping Rates</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5 class="footer-widget-title">Our Services</h5>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Domestic Express</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> International Shipping</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Same-Day Delivery</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> E-Commerce Logistics</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Bulk Freight Cargo</a></li>
+            <li><a href="branches.html"><i class="fas fa-angle-right"></i> Branch Locator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-widget-title">Head Office</h5>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Ashok Logistics Tower, Plot 42, Cyber Hub, Gurugram, India 122002</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+91 1800 233 4567 / 011-4982-1000</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@ashokcourier.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-start mb-2 mb-md-0">&copy; 2026 <strong>ASHOK COURIER SERVICES</strong>. All Rights Reserved.</div>
+          <div class="col-md-6 text-md-end">
+            <a href="contact.html" class="text-muted me-3">Privacy Policy</a>
+            <a href="contact.html" class="text-muted me-3">Terms of Carriage</a>
+            <a href="contact.html" class="text-muted">GST Compliance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="back-to-top-btn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Rates Calculator Logic
+    function calculateInstantQuote() {
+      const weight = parseFloat(document.getElementById('calcWeight').value) || 1;
+      const tier = document.getElementById('calcTier').value;
+
+      let base = 90;
+      let perKg = 45;
+      let time = "2 - 3 Days (Surface)";
+
+      if (tier === 'express') {
+        base = 180;
+        perKg = 85;
+        time = "Next Day (Within 24 Hrs)";
+      } else if (tier === 'sameday') {
+        base = 290;
+        perKg = 60;
+        time = "Same Day (4 - 6 Hours)";
+      } else if (tier === 'international') {
+        base = 850;
+        perKg = 350;
+        time = "4 - 6 Days (Global Air)";
+      }
+
+      const extraWeight = Math.max(0, weight - 0.5);
+      const subtotal = base + Math.round(extraWeight * perKg);
+      const total = Math.round(subtotal * 1.18); // GST
+
+      document.getElementById('quoteCostDisplay').innerText = `₹${total}`;
+      document.getElementById('quoteTimeDisplay').innerText = time;
+      
+      if (typeof showToast === 'function') {
+        showToast(`Rate estimated: ₹${total} (${time})`, 'info');
+      }
+    }
+
+    function calculateVolumetric() {
+      const l = parseFloat(document.getElementById('boxLength').value) || 0;
+      const w = parseFloat(document.getElementById('boxWidth').value) || 0;
+      const h = parseFloat(document.getElementById('boxHeight').value) || 0;
+      const volWeight = (l * w * h) / 5000;
+      document.getElementById('volumetricResult').innerText = `${volWeight.toFixed(2)} kg`;
+    }
+  </script>
+</body>
+</html>
+

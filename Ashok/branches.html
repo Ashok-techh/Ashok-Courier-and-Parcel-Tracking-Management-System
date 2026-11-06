@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branch Locator | Ashok Courier Services</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="top-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-8">
+          <div class="top-header-info">
+            <span><i class="fas fa-headset"></i> 24/7 Helpline: <a href="tel:18002334567" class="fw-bold">+91 1800 233 4567</a></span>
+            <span class="d-none d-sm-inline"><i class="fas fa-envelope"></i> <a href="mailto:support@ashokcourier.com">support@ashokcourier.com</a></span>
+            <span class="badge-247"><i class="fas fa-circle fa-xs me-1"></i> 180+ Hubs Nationwide</span>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-4 text-end d-none d-md-block">
+          <div class="top-header-actions">
+            <span><i class="fas fa-clock text-warning"></i> Open 7 Days A Week</span>
+            <a href="branches.html" class="small"><i class="fas fa-map-marker-alt"></i> Find Nearest Hub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html">
+        <div class="brand-logo-icon">
+          <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">ASHOK <span>COURIER</span></span>
+          <span class="brand-tagline">Services &bull; Fast &bull; Secure</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarNav" aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars fa-lg text-navy"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="tracking.html">Track Parcel</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="rates.html">Shipping Rates</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="branches.html">Branches</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2" id="navAuthContainer">
+          <a href="login.html" class="btn btn-sm btn-outline-navy me-1"><i class="fas fa-user me-1"></i> Login</a>
+          <a href="booking.html" class="btn btn-sm btn-orange"><i class="fas fa-box me-1"></i> Book Courier</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Subpage Banner -->
+  <section class="page-banner">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="breadcrumb-custom">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="active">Branch Locator</span>
+      </div>
+      <h1 class="page-banner-title">Find Your Nearest Ashok Courier Hub</h1>
+      <p class="page-banner-desc">
+        Locate our 180+ service centers, express dropoff counters, and automated sorting hubs across India.
+      </p>
+    </div>
+  </section>
+
+  <!-- Search & Interactive Network Map Section -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <!-- Search Filter Bar -->
+      <div class="bg-white p-4 rounded-4 shadow-sm border mb-5">
+        <div class="row g-3 align-items-center">
+          <div class="col-lg-5 col-md-6">
+            <label class="form-label-custom">Search Branch by City or Area</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
+              <input type="text" id="branchSearchInput" class="form-control border-start-0 py-2" placeholder="e.g. Mumbai, Delhi, Bengaluru, Hyderabad..." oninput="filterBranches()">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <label class="form-label-custom">Filter by Branch Type</label>
+            <select id="branchTypeFilter" class="form-select py-2" onchange="filterBranches()">
+              <option value="all">All Hubs & Branches (180+)</option>
+              <option value="metro">Major Regional Sorting Hubs</option>
+              <option value="express">24/7 Express Counters</option>
+              <option value="cargo">Air Cargo & International Depots</option>
+            </select>
+          </div>
+          <div class="col-lg-3 col-md-2 text-md-end mt-4">
+            <span class="text-muted small d-block">Showing:</span>
+            <strong class="text-navy" id="branchCountDisplay">Showing 10 Primary Hubs</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stylized Network Map Visual -->
+      <div class="interactive-map-box mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-warning text-dark fw-bold">Live India Hub Visualizer</span>
+              <span class="small text-white-50">Click any city pin to view hub details</span>
+            </div>
+            <h4 class="fw-bold mb-3 text-white">Central Multimodal Logistics Grid</h4>
+            
+            <!-- SVG Map Illustration with Clickable Pins -->
+            <div class="position-relative p-2" style="background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+              <svg viewBox="0 0 700 450" style="width: 100%; height: auto; max-height: 380px;">
+                <!-- Subtle grid background lines -->
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="700" height="450" fill="url(#grid)" />
+
+                <!-- Connecting route lines between hubs -->
+                <path d="M 280,90 L 210,240 M 280,90 L 480,210 M 280,90 L 270,340 M 210,240 L 270,340 M 270,340 L 320,380 M 320,380 L 480,210 M 210,240 L 320,290" 
+                      fill="none" stroke="rgba(255, 107, 0, 0.35)" stroke-width="2" stroke-dasharray="4,4" />
+
+                <!-- Hub Pins with Labels and Click Handlers -->
+                <!-- Delhi -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Delhi')">
+                  <circle cx="280" cy="90" r="10" fill="#FF6B00" />
+                  <circle cx="280" cy="90" r="18" fill="none" stroke="#FF6B00" stroke-width="1.5" opacity="0.6">
+                    <animate attributeName="r" values="10;22;10" dur="2s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="295" y="95" fill="#FFF" font-size="12" font-weight="bold">Delhi (Head Hub)</text>
+                </g>
+
+                <!-- Jaipur -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Jaipur')">
+                  <circle cx="230" cy="130" r="7" fill="#3B82F6" />
+                  <text x="175" y="135" fill="#CBD5E1" font-size="11">Jaipur</text>
+                </g>
+
+                <!-- Lucknow -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Lucknow')">
+                  <circle cx="360" cy="130" r="7" fill="#3B82F6" />
+                  <text x="375" y="135" fill="#CBD5E1" font-size="11">Lucknow</text>
+                </g>
+
+                <!-- Ahmedabad -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Ahmedabad')">
+                  <circle cx="180" cy="190" r="8" fill="#10B981" />
+                  <text x="100" y="195" fill="#CBD5E1" font-size="11">Ahmedabad</text>
+                </g>
+
+                <!-- Mumbai -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Mumbai')">
+                  <circle cx="210" cy="240" r="10" fill="#FF6B00" />
+                  <text x="135" y="245" fill="#FFF" font-size="12" font-weight="bold">Mumbai (West)</text>
+                </g>
+
+                <!-- Pune -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Pune')">
+                  <circle cx="235" cy="265" r="7" fill="#3B82F6" />
+                  <text x="250" y="270" fill="#CBD5E1" font-size="11">Pune</text>
+                </g>
+
+                <!-- Kolkata -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Kolkata')">
+                  <circle cx="480" cy="210" r="9" fill="#FF6B00" />
+                  <text x="495" y="215" fill="#FFF" font-size="12" font-weight="bold">Kolkata (East)</text>
+                </g>
+
+                <!-- Hyderabad -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Hyderabad')">
+                  <circle cx="320" cy="290" r="9" fill="#3B82F6" />
+                  <text x="335" y="295" fill="#FFF" font-size="12" font-weight="bold">Hyderabad</text>
+                </g>
+
+                <!-- Bengaluru -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Bengaluru')">
+                  <circle cx="270" cy="340" r="10" fill="#FF6B00" />
+                  <text x="175" y="345" fill="#FFF" font-size="12" font-weight="bold">Bengaluru (South)</text>
+                </g>
+
+                <!-- Chennai -->
+                <g class="map-hub-pin" onclick="selectHubOnMap('Chennai')">
+                  <circle cx="320" cy="380" r="9" fill="#10B981" />
+                  <text x="335" y="385" fill="#FFF" font-size="12" font-weight="bold">Chennai</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Selected Hub Spotlight Card -->
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div id="mapSelectedHubCard" class="p-4 rounded-4" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);">
+              <span class="badge bg-orange mb-2 text-white">Hub Spotlight</span>
+              <h4 class="fw-bold text-white mb-2" id="spotlightTitle">New Delhi Northern Super-Hub</h4>
+              <p class="text-white-50 small mb-3" id="spotlightAddress">Plot 18, Okhla Industrial Phase III, Near Metro Station, New Delhi 110020</p>
+              
+              <ul class="list-unstyled small text-white-50 mb-3">
+                <li class="mb-2"><i class="fas fa-phone-alt text-warning me-2"></i> <strong class="text-white" id="spotlightPhone">+91 11 4982 1000</strong></li>
+                <li class="mb-2"><i class="fas fa-clock text-warning me-2"></i> <span id="spotlightHours">Open 24/7 (Air Cargo & Drop-off)</span></li>
+                <li><i class="fas fa-user-tie text-warning me-2"></i> Station Manager: <span class="text-white" id="spotlightManager">Vikram Malhotra</span></li>
+              </ul>
+
+              <div class="d-flex gap-2">
+                <a href="booking.html" class="btn btn-sm btn-orange w-100">Book From Here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch Cards Grid -->
+      <div class="row g-4" id="branchesGrid">
+        <!-- Branch 1: New Delhi -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="delhi new delhi north" data-type="metro">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">New Delhi &bull; Head Hub</span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">24/7 Active</span>
+            </div>
+            <h4 class="branch-title">Delhi Central Sorting Hub</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Plot 18, Okhla Industrial Area Phase III, New Delhi 110020</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 11 4982 1000 / +91 98110 22334</span></li>
+              <li><i class="fas fa-envelope"></i> <span>delhi.hub@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: Open 24 Hours</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-plane text-primary"></i> Air Express + Road</span>
+              <a href="https://maps.google.com/?q=Okhla+Industrial+Area+Delhi" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 2: Mumbai -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="mumbai bombay maharashtra west" data-type="metro">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Mumbai &bull; Western Hub</span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">24/7 Active</span>
+            </div>
+            <h4 class="branch-title">Bhiwandi Logistics Park & BKC</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Building B4, Shree Rajlaxmi Park, Bhiwandi-Kalyan Road, Mumbai 421302</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 22 2845 7700 / +91 98200 44556</span></li>
+              <li><i class="fas fa-envelope"></i> <span>mumbai.hub@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: Open 24 Hours</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-ship text-primary"></i> Port Cargo + Air Express</span>
+              <a href="https://maps.google.com/?q=Bhiwandi+Logistics+Park" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 3: Bengaluru -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="bengaluru bangalore karnataka south" data-type="metro">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Bengaluru &bull; Southern Hub</span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">24/7 Active</span>
+            </div>
+            <h4 class="branch-title">Whitefield Tech & Air Hub</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Plot 54, EPIP Industrial Zone, Whitefield, Bengaluru 560066</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 80 4123 9988 / +91 98450 11223</span></li>
+              <li><i class="fas fa-envelope"></i> <span>bangalore.hub@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: 07:00 AM - 11:30 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-microchip text-primary"></i> Tech Express Delivery</span>
+              <a href="https://maps.google.com/?q=EPIP+Zone+Whitefield+Bangalore" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 4: Hyderabad -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="hyderabad telangana deccan south" data-type="express">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Hyderabad &bull; Deccan Center</span>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Express Counter</span>
+            </div>
+            <h4 class="branch-title">Madhapur Cyber Towers Branch</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Ground Floor, Hitech City Main Road, Madhapur, Hyderabad 500081</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 40 6678 1234 / +91 99890 33445</span></li>
+              <li><i class="fas fa-envelope"></i> <span>hyderabad@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sat: 08:00 AM - 10:00 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-pills text-danger"></i> Pharma Cold-Chain</span>
+              <a href="https://maps.google.com/?q=Hitech+City+Madhapur+Hyderabad" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 5: Chennai -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="chennai tamil nadu south" data-type="cargo">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Chennai &bull; Coastal Hub</span>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Cargo Terminal</span>
+            </div>
+            <h4 class="branch-title">Guindy Industrial Center</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>No. 12, SIDCO Industrial Estate, Guindy, Chennai 600032</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 44 2250 8899 / +91 98400 66778</span></li>
+              <li><i class="fas fa-envelope"></i> <span>chennai.hub@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: 07:30 AM - 10:30 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-anchor text-primary"></i> Seaport & Air Logistics</span>
+              <a href="https://maps.google.com/?q=Guindy+Industrial+Estate+Chennai" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 6: Kolkata -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="kolkata west bengal east" data-type="metro">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Kolkata &bull; Eastern Gateway</span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">24/7 Active</span>
+            </div>
+            <h4 class="branch-title">Rajarhat Airport Express Depot</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Action Area II, New Town, Near NSCBI Airport, Kolkata 700135</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 33 2590 4411 / +91 98300 77889</span></li>
+              <li><i class="fas fa-envelope"></i> <span>kolkata.hub@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: Open 24 Hours</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-plane text-primary"></i> North-East Express Hub</span>
+              <a href="https://maps.google.com/?q=New+Town+Rajarhat+Kolkata" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 7: Ahmedabad -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="ahmedabad gujarat west" data-type="cargo">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Ahmedabad &bull; Gujarat Hub</span>
+              <span class="badge bg-secondary-subtle text-secondary border">Commercial Center</span>
+            </div>
+            <h4 class="branch-title">Sanand Industrial Linehaul</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Plot 22, GIDC Phase II, Sanand-Sarkhej Highway, Ahmedabad 382110</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 79 2658 9900 / +91 98250 88990</span></li>
+              <li><i class="fas fa-envelope"></i> <span>gujarat@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sat: 08:00 AM - 09:30 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-industry text-primary"></i> Textile & Auto Cargo</span>
+              <a href="https://maps.google.com/?q=Sanand+GIDC+Ahmedabad" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 8: Pune -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="pune maharashtra west" data-type="express">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Pune &bull; Automotive Hub</span>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Express Counter</span>
+            </div>
+            <h4 class="branch-title">Pimpri Chinchwad Branch</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>MIDC Commercial Complex, Telco Road, Bhosari, Pune 411026</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 20 2712 3344 / +91 98220 55667</span></li>
+              <li><i class="fas fa-envelope"></i> <span>pune@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sun: 08:30 AM - 10:00 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-cogs text-primary"></i> Heavy Spares Transport</span>
+              <a href="https://maps.google.com/?q=Bhosari+MIDC+Pune" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 9: Jaipur -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="jaipur rajasthan north" data-type="express">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Jaipur &bull; Rajasthan Center</span>
+              <span class="badge bg-secondary-subtle text-secondary border">Branch Counter</span>
+            </div>
+            <h4 class="branch-title">Sitapura Industrial Center</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>E-32, Sitapura Industrial Area, Tonk Road, Jaipur 302022</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 141 2770 123 / +91 94140 33445</span></li>
+              <li><i class="fas fa-envelope"></i> <span>jaipur@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sat: 09:00 AM - 08:30 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-gem text-primary"></i> Gems, Jewelry & Handicrafts</span>
+              <a href="https://maps.google.com/?q=Sitapura+Industrial+Area+Jaipur" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch 10: Lucknow -->
+        <div class="col-lg-4 col-md-6 branch-item" data-city="lucknow uttar pradesh up north" data-type="express">
+          <div class="branch-card">
+            <div class="d-flex justify-content-between align-items-start">
+              <span class="branch-city-badge">Lucknow &bull; UP Central Hub</span>
+              <span class="badge bg-secondary-subtle text-secondary border">Branch Counter</span>
+            </div>
+            <h4 class="branch-title">Transport Nagar Main Branch</h4>
+            <ul class="branch-info-list">
+              <li><i class="fas fa-map-marker-alt"></i> <span>Phase 1, Transport Nagar, Kanpur Road, Lucknow 226012</span></li>
+              <li><i class="fas fa-phone-alt"></i> <span>+91 522 2435 889 / +91 94150 11223</span></li>
+              <li><i class="fas fa-envelope"></i> <span>lucknow@ashokcourier.com</span></li>
+              <li><i class="fas fa-clock"></i> <span>Mon - Sat: 08:30 AM - 09:00 PM</span></li>
+            </ul>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="small text-muted"><i class="fas fa-truck text-primary"></i> UP Regional Linehaul</span>
+              <a href="https://maps.google.com/?q=Transport+Nagar+Lucknow" target="_blank" class="btn btn-sm btn-outline-navy">
+                <i class="fas fa-directions me-1"></i> Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-logo-icon" style="width: 40px; height: 40px; font-size: 1.2rem;"><i class="fas fa-shipping-fast"></i></div>
+            <span class="fs-4 fw-bold text-white">ASHOK <span class="text-orange">COURIER</span></span>
+          </div>
+          <p class="small text-muted mb-3">
+            Ashok Courier Services is India's leading integrated multimodal logistics network. Providing express courier, international cargo, and supply chain solutions with unmatched speed and reliability.
+          </p>
+          <div class="footer-social-links">
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <h5 class="footer-widget-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Services</a></li>
+            <li><a href="tracking.html"><i class="fas fa-angle-right"></i> Track Parcel</a></li>
+            <li><a href="booking.html"><i class="fas fa-angle-right"></i> Book Courier</a></li>
+            <li><a href="rates.html"><i class="fas fa-angle-right"></i> Shipping Rates</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <h5 class="footer-widget-title">Our Services</h5>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Domestic Express</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> International Shipping</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Same-Day Delivery</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> E-Commerce Logistics</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Bulk Freight Cargo</a></li>
+            <li><a href="branches.html"><i class="fas fa-angle-right"></i> Branch Locator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-widget-title">Head Office</h5>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Ashok Logistics Tower, Plot 42, Cyber Hub, Gurugram, India 122002</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+91 1800 233 4567 / 011-4982-1000</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>support@ashokcourier.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-start mb-2 mb-md-0">&copy; 2026 <strong>ASHOK COURIER SERVICES</strong>. All Rights Reserved.</div>
+          <div class="col-md-6 text-md-end">
+            <a href="contact.html" class="text-muted me-3">Privacy Policy</a>
+            <a href="contact.html" class="text-muted me-3">Terms of Carriage</a>
+            <a href="contact.html" class="text-muted">GST Compliance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="back-to-top-btn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    const HUBS_DATA = {
+      'Delhi': {
+        title: 'New Delhi Northern Super-Hub',
+        address: 'Plot 18, Okhla Industrial Phase III, New Delhi 110020',
+        phone: '+91 11 4982 1000',
+        hours: 'Open 24/7 (Air Cargo & Drop-off)',
+        manager: 'Vikram Malhotra'
+      },
+      'Mumbai': {
+        title: 'Mumbai Western Central Hub',
+        address: 'Building B4, Shree Rajlaxmi Park, Bhiwandi-Kalyan Road, Mumbai 421302',
+        phone: '+91 22 2845 7700',
+        hours: 'Open 24/7 (Marine Port & Air Cargo)',
+        manager: 'Deepak Deshmukh'
+      },
+      'Bengaluru': {
+        title: 'Bengaluru Tech Corridor Hub',
+        address: 'Plot 54, EPIP Industrial Zone, Whitefield, Bengaluru 560066',
+        phone: '+91 80 4123 9988',
+        hours: '07:00 AM - 11:30 PM (Air Express Dispatch)',
+        manager: 'Raghavan Iyer'
+      },
+      'Hyderabad': {
+        title: 'Hyderabad Deccan Gateway Hub',
+        address: 'Ground Floor, Hitech City Main Road, Madhapur, Hyderabad 500081',
+        phone: '+91 40 6678 1234',
+        hours: '08:00 AM - 10:00 PM (Pharma Cold-Chain)',
+        manager: 'K. Venkat Rao'
+      },
+      'Chennai': {
+        title: 'Chennai Coastal & Port Terminal',
+        address: 'No. 12, SIDCO Industrial Estate, Guindy, Chennai 600032',
+        phone: '+91 44 2250 8899',
+        hours: '07:30 AM - 10:30 PM',
+        manager: 'S. Parthasarathy'
+      },
+      'Kolkata': {
+        title: 'Kolkata Eastern Air Hub',
+        address: 'Action Area II, New Town, Near Airport, Kolkata 700135',
+        phone: '+91 33 2590 4411',
+        hours: 'Open 24/7 (North-East Gateway)',
+        manager: 'Subhashish Bose'
+      },
+      'Ahmedabad': {
+        title: 'Ahmedabad Sanand Central Depot',
+        address: 'Plot 22, GIDC Phase II, Sanand Highway, Ahmedabad 382110',
+        phone: '+91 79 2658 9900',
+        hours: '08:00 AM - 09:30 PM',
+        manager: 'Ketan Patel'
+      },
+      'Pune': {
+        title: 'Pune Industrial Linehaul Center',
+        address: 'MIDC Commercial Complex, Bhosari, Pune 411026',
+        phone: '+91 20 2712 3344',
+        hours: '08:30 AM - 10:00 PM',
+        manager: 'Mahesh Kulkarni'
+      },
+      'Jaipur': {
+        title: 'Jaipur Sitapura Express Center',
+        address: 'E-32, Sitapura Industrial Area, Tonk Road, Jaipur 302022',
+        phone: '+91 141 2770 123',
+        hours: '09:00 AM - 08:30 PM',
+        manager: 'Harish Shekhawat'
+      },
+      'Lucknow': {
+        title: 'Lucknow Transport Nagar Depot',
+        address: 'Phase 1, Transport Nagar, Kanpur Road, Lucknow 226012',
+        phone: '+91 522 2435 889',
+        hours: '08:30 AM - 09:00 PM',
+        manager: 'Anand Mishra'
+      }
+    };
+
+    function selectHubOnMap(cityName) {
+      const hub = HUBS_DATA[cityName];
+      if (!hub) return;
+      document.getElementById('spotlightTitle').innerText = hub.title;
+      document.getElementById('spotlightAddress').innerText = hub.address;
+      document.getElementById('spotlightPhone').innerText = hub.phone;
+      document.getElementById('spotlightHours').innerText = hub.hours;
+      document.getElementById('spotlightManager').innerText = hub.manager;
+
+      // Filter cards to that city
+      const searchInput = document.getElementById('branchSearchInput');
+      if (searchInput) {
+        searchInput.value = cityName;
+        filterBranches();
+      }
+    }
+
+    function filterBranches() {
+      const query = (document.getElementById('branchSearchInput').value || '').toLowerCase().trim();
+      const type = document.getElementById('branchTypeFilter').value;
+      const items = document.querySelectorAll('.branch-item');
+
+      let visibleCount = 0;
+      items.forEach(item => {
+        const cityData = (item.getAttribute('data-city') || '').toLowerCase();
+        const itemType = item.getAttribute('data-type');
+
+        const matchesQuery = !query || cityData.includes(query);
+        const matchesType = (type === 'all') || (itemType === type);
+
+        if (matchesQuery && matchesType) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      document.getElementById('branchCountDisplay').innerText = `Showing ${visibleCount} Hub${visibleCount === 1 ? '' : 's'}`;
+    }
+  </script>
+</body>
+</html>
+
